@@ -336,11 +336,11 @@ jobs:
         env:
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
           GITLAB_PROJECT_ID: "87288318"
-          run: |
-            if [ -z "$GITLAB_TOKEN" ]; then
-              echo "GITLAB_TOKEN secret is not set — skipping GitLab publish (this is normal for forks)."
-              exit 0
-            fi
+        run: |
+          if [ -z "$GITLAB_TOKEN" ]; then
+            echo "GITLAB_TOKEN secret is not set — skipping GitLab publish (this is normal for forks)."
+            exit 0
+          fi
           # gitlab_publish_release.py --merge: uploads new APKs + manifest to the
           # GitLab generic package registry, add/replaces their release asset
           # links, deletes superseded older-version APKs, refreshes notes.
